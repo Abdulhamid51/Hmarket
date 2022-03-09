@@ -1,0 +1,106 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Mahsulot qoshish</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="{% static 'assets/css/add_product.css' %}">
+
+	</head>
+    <style>
+        .input-labels {
+            color: blue;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        @media only screen and (max-width: 450px) {
+            .container {
+                margin: 0%;
+                padding: 0;
+            }
+        }
+    </style>
+	<body>
+    <h2 style="display: inline-block;padding: 1rem 0 0 1rem"><a href="{% url 'backproducts' %}">Royhatlarga otish</a></h2>
+	<section class="ftco-section">
+        <div class="container" id="containerdivdiv">
+            <div class=" col-lg-12">
+                <div class="login-wrap p-4 p-md-5">
+                    <h3 class="text-center mb-4" style="font-weight: bold;font-size: 2rem;">Mahsulot qoshish</h3>
+                    <form action="{% url 'product_edits' %}" class="login-form" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="hidden" value="{{product.id}}" name="product_id">
+                        <h3 class="input-labels" style="color: #266bf9; font-weight: 500;">Mahsulot Nomi</h3>
+                        <div class="form-group d-flex">
+                            <input type="text" value="{{product.name}}" class="form-control rounded-left" name="name" placeholder="Mahsulot Nomi" required>
+                        </div>
+                        <h3 class="input-labels" style="color: #266bf9; font-weight: 500;">Hususiyatlari</h3>
+                        <div class="form-group d-flex">
+                            <input type="text" value="{{product.characters}}" class="form-control rounded-left" name="characters" placeholder="Hususiyatlari" required>
+                        </div>
+                        <h3 class="input-labels" style="color: #266bf9; font-weight: 500;">Kategoriyasi</h3>
+                        <div class="form-group d-flex">
+                            <select  style="border: 1px solid  rgb(223, 223, 223); border-radius:4px; width:100%;padding:1rem 0.5rem;"
+                                                                                                        name="category" id="category" required>
+                                <option value="">- - - - - - - - - - </option>
+                                {% for cat in categories %}
+                                    {% if cat.id == product.category.id %}
+                                        <option value="{{cat.id}}" selected>{{cat.name}}</option>
+                                    {% else %}
+                                        <option value="{{cat.id}}">{{cat.name}}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <h3 class="input-labels" style="color: #266bf9; font-weight: 500;">Brendi</h3>
+                        <div class="form-group d-flex">
+                            <select  style="border: 1px solid  rgb(223, 223, 223); border-radius:4px; width:100%;padding:1rem 0.5rem;"
+                            name="brand" id="brand" required>
+                                <option value="">- - - - - - - - - - </option>
+                                {% for brand in brands %}
+                                    {% if brand.id == product.brand_name.id %}
+                                        <option value="{{brand.id}}" selected>{{brand.name}}</option>
+                                    {% else %}
+                                    <option value="{{brand.id}}">{{brand.name}}</option>
+                                    {% endif %}
+                                    {% endfor %}
+                                </select>                    </div>
+                        <h3 class="input-labels" style="color: #266bf9; font-weight: 500;">Narhi</h3>
+                        <div class="form-group d-flex">
+                            <input type="number" value="{{product.price}}" class="form-control rounded-left" name="price" placeholder="Narhi" required>
+                        </div>
+                        <h3 class="input-labels" style="color: #266bf9; font-weight: 500;">Chegirma</h3>
+                        <div class="form-group d-flex">
+                            <input type="number" value="{{product.discount}}" class="form-control rounded-left" value="0" name="discount" placeholder="Chegirmasi">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="form-control btn btn-primary rounded submit px-3">Saqlash</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let qwerty = document.querySelector('#containerdivdiv')
+            if (screen.width < 450) {
+                qwerty.classList.remove('container')
+            }
+                
+        })
+    </script> -->
+
+	</body>
+</html>
+
