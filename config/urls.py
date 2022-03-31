@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from . import settings
 
 urlpatterns = [
-    path('__debug__/', include('debug_toolbar.urls')),
+    # path('__debug__/', include('debug_toolbar.urls')),
     path('admin/', admin.site.urls),
     path('', include('main.urls', namespace='main')),
     path('cart/', include('cart.urls', namespace='cart')),
