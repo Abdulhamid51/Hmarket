@@ -28,7 +28,7 @@ class Tag(models.Model):
 class Slider(models.Model):
     sub_title = models.CharField(_("Mavzusi"), max_length=50)
     title = models.CharField(_("Nomi"), max_length=150)
-    bg_image = models.ImageField(_("Rasmi"), upload_to=None, height_field=None, width_field=None, max_length=None)
+    bg_image = models.ImageField(_("Rasmi"), upload_to='slide_image')
 
     class Meta:
         verbose_name = _("SLIDERS")
