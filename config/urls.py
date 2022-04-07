@@ -17,13 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from . import settings
+from django.conf.urls.i18n import i18n_patterns 
 
-urlpatterns = [
-    # path('__debug__/', include('debug_toolbar.urls')),
+urlpatterns = i18n_patterns(
+    path('__debug__/', include('debug_toolbar.urls')),
     path('admin/', admin.site.urls),
     path('', include('main.urls', namespace='main')),
     path('cart/', include('cart.urls', namespace='cart')),
-]
+    prefix_default_language=False
+)
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
