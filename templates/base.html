@@ -9,22 +9,22 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>MaxMebel</title>
     <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="Urdan Minimal eCommerce Bootstrap 5 Template is a stunning eCommerce website template that is the best choice for any online store.">
+    <meta name="description" content="iMaxMebel - online mebel do'koni, bizda istalga turdagi mebellarni sotib olishingiz mumkun.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="profile" href="https://gmpg.org/xfn/11">
-    <link rel="canonical" href="https://htmldemo.hasthemes.com/urdan/index.html" />
+    <link rel="profile" href="https://imaxmebel.uz">
+    <link rel="canonical" href="https://imaxmebel.uz" />
 
     <!-- Open Graph (OG) meta tags are snippets of code that control how URLs are displayed when shared on social media  -->
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content="{{ LG_code }}" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Urdan - Minimal eCommerce HTML Template" />
-    <meta property="og:url" content="https://htmldemo.hasthemes.com/urdan/index.html" />
-    <meta property="og:site_name" content="Urdan - Minimal eCommerce HTML Template" />
+    <meta property="og:title" content="iMaxMebel - online mebel do'koni" />
+    <meta property="og:url" content="https://htmldemo.hasthemes.com/urdan/{% url 'main:index' %}" />
+    <meta property="og:site_name" content="iMaxMebel - online mebel do'koni" />
     <!-- For the og:image content, replace the # with a link of an image -->
     <meta property="og:image" content="#" />
-    <meta property="og:description" content="Urdan Minimal eCommerce Bootstrap 5 Template is a stunning eCommerce website template that is the best choice for any online store." />
+    <meta property="og:description" content="iMaxMebel - online mebel do'koni, bizda istalga turdagi mebellarni sotib olishingiz mumkun." />
     <!-- Add site Favicon -->
-    <link rel="icon" href="/static/assets/images/favicon/cropped-favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" href="/staticfiles/assets/images/favicon/cropped-favicon-32x32.png" sizes="32x32" />
     <link rel="icon" href="/static/assets/images/favicon/cropped-favicon-192x192.png" sizes="192x192" />
     <link rel="apple-touch-icon" href="/static/assets/images/favicon/cropped-favicon-180x180.png" />
     <meta name="msapplication-TileImage" content="/static/assets/images/favicon/cropped-favicon-270x270.png" />
@@ -45,6 +45,10 @@
     <link rel="stylesheet" href="/static/assets/css/plugins/easyzoom.css" />
     <link rel="stylesheet" href="/static/assets/css/plugins/slinky.css" />
     <link rel="stylesheet" href="/static/assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -83,19 +87,19 @@
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-6 col-6">
                             <div class="logo">
-                                <a href="index.html"><img width='150' src="/static/assets/images/logo/logo.png" alt="logo"></a>
+                                <a href="{% url 'main:index' %}"><img width='150' src="/static/assets/images/logo/logo.png" alt="logo"></a>
                             </div>
                         </div>
                         <div class="col-lg-6 d-none d-lg-block d-flex justify-content-center">
                             <div class="main-menu text-center">
                                 <nav>
                                     <ul>
-                                        <li><a href="index-6.html">{% trans "BOSH SAHIFA" %}</a>
+                                        <li><a href="{% url 'main:index' %}">{% trans "BOSH SAHIFA" %}</a>
                                         </li>
-                                        <li><a href="shop.html">{% trans "MAXSULOTLAR" %}</a>
+                                        <li><a href="{% url 'main:shop' %}">{% trans "MAXSULOTLAR" %}</a>
                                         </li>
-                                        <li><a href="about-us.html">{% trans "BIZ HAQIMIZDA" %}</a></li>
-                                        <li><a href="login-register.html">{% trans "BOG'LANISH" %}</a></li>
+                                        <li><a href="{% url 'main:about_us' %}">{% trans "BIZ HAQIMIZDA" %}</a></li>
+                                        <li><a href="{% url 'main:contact_us' %}">{% trans "BOG'LANISH" %}</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -114,9 +118,19 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="header-action-style">
-                                    <a title="Login Register" href="login-register.html"><i class="pe-7s-user"></i></a>
-                                </div>
+                                {% if request.user.username %}
+                                    <div class="header-action-style">
+                                        {% if request.user.first_name %}
+                                        <b>{% trans "Salom" %}, {{ request.user.first_name }}</b>
+                                        {% else %}
+                                        <b>{% trans "Salom" %}, {{ request.user.username }}</b>
+                                        {% endif %}
+                                    </div>
+                                    {% else %}
+                                    <div class="header-action-style">
+                                        <a title="Login Register" href="{% url 'main:auth' %}"><i class="pe-7s-user"></i></a>
+                                    </div>
+                                {% endif %}
                                 <div class="header-action-style d-block d-lg-none">
                                     <a class="mobile-menu-active-button" href="#"><i class="pe-7s-menu"></i></a>
                                 </div>
@@ -138,7 +152,7 @@
                             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                                 <div class="footer-widget footer-about mb-40">
                                     <div class="footer-logo">
-                                        <a href="index.html"><img src="/static/assets/images/logo/logo.png" alt="logo"></a>
+                                        <a href="{% url 'main:index' %}"><img src="/static/assets/images/logo/logo.png" alt="logo"></a>
                                     </div>
                                     <p>Lorem ipsum dolor sit amet, cons adipi elit, sed do eiusmod tempor incididunt ut aliqua.</p>
 
@@ -148,13 +162,13 @@
                                 <div class="footer-widget footer-widget-margin-2 footer-address mb-40">
                                     <h3 class="footer-title">{% trans "BOG'LANISH" %}</h3>
                                     <ul>
-                                        <li><span>{% trans "Manzil" %}: </span>Your address goes here </li>
-                                        <li><span>{% trans "Telefon" %}:</span> (012) 345 6789</li>
-                                        <li><span>{% trans "Email" %}: </span>demo@example.com</li>
+                                        <li><span>{% trans "Manzil" %}: </span><a href='https://maps.app.goo.gl/ocHKkcv1Yt4HvwQN6'>{% trans "Andijon, Oltinko’l" %} 170100</a></li>
+                                        <li><span>{% trans "Telefon" %}:</span> +998 90 220 0088</li>
+                                        <li><span>{% trans "Email" %}: </span>imaxmebeluz@gmail.com</li>
                                     </ul>
                                     <div class="open-time">
-                                        <p>{% trans "Ochiq" %} : <span>8:00 AM</span> - {% trans "Yopiq" %} : <span>18:00 PM</span></p>
-                                        <p>{% trans "Shanba" %} - {% trans "Yakshanba" %} : {% trans "Yopiq" %}</p>
+                                        <p>{% trans "Ochiq" %} : <span>8:00</span> - {% trans "Yopiq" %} : <span>19:00</span></p>
+                                        <p>{% trans "Shanba" %} - {% trans "Yakshanba" %} :  <span>09:00 – 19:00</span></p>
                                     </div>
                                 </div>
                             </div>
@@ -175,12 +189,12 @@
                 <div class="mobile-menu-wrap off-canvas-margin-padding-2">
                     <div id="mobile-menu" class="slinky-mobile-menu text-left">
                         <ul>
-                            <li><a href="index-6.html">{% trans "BOSH SAHIFA" %}</a>
+                            <li><a href="{% url 'main:index' %}">{% trans "BOSH SAHIFA" %}</a>
                             </li>
-                            <li><a href="shop.html">{% trans "MAXSULOTLAR" %}</a>
+                            <li><a href="{% url 'main:shop' %}">{% trans "MAXSULOTLAR" %}</a>
                             </li>
-                            <li><a href="about-us.html">{% trans "BIZ HAQIMIZDA" %}</a></li>
-                            <li><a href="login-register.html">{% trans "BOG'LANISH" %}</a></li>
+                            <li><a href="{% url 'main:about_us' %}">{% trans "BIZ HAQIMIZDA" %}</a></li>
+                            <li><a href="{% url 'main:contact_us' %}">{% trans "BOG'LANISH" %}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -195,8 +209,8 @@
                         {% endif %}
                         <div class="language-dropdown">
                             <ul>
-                                <li><a href="#"><img src="/static/assets/images/icon-img/flag.png" alt="">UZ</a></li>
-                                <li><a href="#"><img src="/static/assets/images/icon-img/spanish.png" alt="">RU</a></li>
+                                <li><a href="/change_lang/?now={{LG_code}}&lang=uz&next={{request.path}}"><img src="/static/assets/images/icon-img/flag.png" alt="">UZ</a></li>
+                                <li><a href="/change_lang/?now={{LG_code}}&lang=ru&next={{request.path}}"><img src="/static/assets/images/icon-img/spanish.png" alt="">RU</a></li>
                             </ul>
                         </div>
                     </div>

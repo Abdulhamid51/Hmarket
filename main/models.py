@@ -1,8 +1,29 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 
-# Create your models here.
+
+class MyUser(models.Model):
+    user = models.OneToOneField(User, verbose_name=_("Foydalanuvchi"),related_name='myuser', on_delete=models.CASCADE)
+    phone = models.IntegerField(_("Telefon"), null=True)
+    address = models.CharField(_("Manzil"), max_length=50, null=True)
+
+    class Meta:
+        ordering = ('-id',)
+        verbose_name = _("FOYDALANUVCHILAR")
+        verbose_name_plural = _("FOYDALANUVCHILAR")
+
+    def __str__(self):
+        return self.user.username
+
+@receiver(post_save, sender=User)
+def create_UserProfile(sender, instance, created, **kwargs):
+    if created == True:
+        MyUser.objects.create(user=instance)
+
 
 class Category(models.Model):
     name = models.CharField(_('Nomi'), max_length=100)

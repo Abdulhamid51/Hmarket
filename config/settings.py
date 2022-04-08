@@ -78,6 +78,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+LOGIN_REDIRECT_URL = 'index'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases

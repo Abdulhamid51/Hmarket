@@ -1284,8 +1284,125 @@ msgstr "Воскресенье"
 msgid "Nomi"
 msgstr "Имя"
 
+msgid "Bosh sahifa"
+msgstr "Главная"
+
 msgid "Narxi"
 msgstr "Цена"
+
+msgid "Ism"
+msgstr "Имя"
+
+msgid "Familiya"
+msgstr "Фамилия"
+
+msgid "Salom"
+msgstr "Привет"
+
+msgid "Takrorlanmas"
+msgstr "Уникальный"
+
+msgid "dizayn"
+msgstr "дизайн"
+
+msgid "Soni"
+msgstr "Количество"
+
+msgid "Hamma maydonlarni to`ldiring"
+msgstr "Заполните все поля"
+
+msgid "Xabar yuborilmadi"
+msgstr "Сообщение не отправлено"
+
+msgid "Xabar yuborildi"
+msgstr "Сообщение отправлено"
+
+msgid "Zamonaviy"
+msgstr "Модерн"
+
+msgid "Kalassik"
+msgstr "Классический"
+
+msgid "Retro"
+msgstr "Ретро"
+
+msgid "Mavzu"
+msgstr "Тема"
+
+msgid "Xabar"
+msgstr "Сообщение"
+
+msgid "Yuborish"
+msgstr "Отправить"
+
+msgid "Savollaringizni yuboring"
+msgstr "Отправить ваши вопросы"
+
+msgid "Mebel"
+msgstr "Мебель"
+
+msgid "Foydalanuvchi"
+msgstr "Пользователь"
+
+msgid "FOYDALANUVCHILAR"
+msgstr "ПОЛЬЗОВАТЕЛИ"
+
+msgid "Parol"
+msgstr "Пароль"
+
+msgid "Foydalanuvchi nomi"
+msgstr "Имя пользователя"
+
+msgid "Bog'lanish"
+msgstr "Контакт"
+
+msgid "Mujozimiz"
+msgstr "Наш клиент"
+
+msgid "Bu mebel korxonasi menga juda yoqdi. Maxsulotlarning sifatiga tan bermay iloji yo'q"
+msgstr "Мне очень понравился этот мебельный бизнес. Невозможно не признать качество продукции"
+
+msgid "Juda ajoyib! Men bu maxsulotlardan doimiy foydalanaman, sifati hech o'zgarmaydi"
+msgstr "Очень круто! Я постоянно использую эти продукты, качество никогда не меняется"
+
+msgid "Men bu mebellarni ishlatib rohatlanaman, chunki mebellarga alohida e'tibor berilgan"
+msgstr "Мне нравится пользоваться этой мебелью, потому что мебели уделяется особое внимание."
+
+msgid "Abdulhamid Zuhriddinov"
+msgstr "Абдулхамид Зухриддинов"
+
+msgid "Javlonbek To'rajonov"
+msgstr "Жавлонбек Тураджонов"
+
+msgid "Ulug'bek Saminjanov"
+msgstr "Улугбек Саминжанов"
+
+msgid "Maxsulotlar"
+msgstr "Продукты"
+
+msgid "Kirish"
+msgstr "Авторизоваться"
+
+msgid "Ro'yxatdan o'tish"
+msgstr "Регистрация"
+
+msgid "Bizning Jamoa"
+msgstr "Наша команда"
+
+msgid "Biz haqimizda"
+msgstr "О нас"
+
+msgid "Ajoyib fikrlar"
+msgstr "Отличный комментарий"
+
+msgid "Andijon, Oltinko’l"
+msgstr "Андижан, Алтынкул"
+
+msgid "Boshqa maxsulotlar"
+msgstr "Другие продукты"
+
+msgid "Maxsulot tafsilotlari"
+msgstr "Детали продукта"
 
 msgid "Bor / Yok"
 msgstr "Да / Нет"

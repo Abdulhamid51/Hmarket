@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block sitebar %}
+
+<div class="breadcrumb-area bg-gray-4 breadcrumb-padding-1">
+    <div class="container">
+        <div class="breadcrumb-content text-center">
+            <h2 data-aos="fade-up" data-aos-delay="200">{% trans "Bog'lanish" %}</h2>
+            <ul data-aos="fade-up" data-aos-delay="400">
+                <li><a href="{% url 'main:index' %}">{% trans "Bosh sahifa" %}</a></li>
+                <li><i class="ti-angle-right"></i></li>
+                <li>{% trans "Bog'lanish" %}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="breadcrumb-img-1" data-aos="fade-right" data-aos-delay="200">
+        <img src="/static/assets/images/banner/breadcrumb-1.png" alt="">
+    </div>
+    <div class="breadcrumb-img-2" data-aos="fade-left" data-aos-delay="200">
+        <img src="/static/assets/images/banner/breadcrumb-2.png" alt="">
+    </div>
+</div>
+<div class="contact-form-area pt-90 pb-100">
+    <div class="container">
+        <div class="section-title-4 text-center mb-55" data-aos="fade-up" data-aos-delay="200">
+            <h2>{% trans "Savollaringizni yuboring" %}</h2>
+        </div>
+        <div class="contact-form-wrap" data-aos="fade-up" data-aos-delay="200">
+            <div class="contact-form-style">
+                <p class="alert" id="response"></p>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <input id="name" type="text" placeholder='{% trans "Ism" %}'>
+                        <input id="surname" type="text" placeholder='{% trans "Familiya" %}'>
+                        <input id="subject" type="text" placeholder='{% trans "Mavzu" %}'>
+                        <input id="phone" type="number" placeholder='{% trans "Telefon" %}'>
+                    </div>
+                    <div class="col-lg-8">
+                        <textarea id="message" placeholder='{% trans "Xabar" %}'></textarea>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-12 contact-us-btn btn-hover">
+                        <button id="submit">{% trans "Yuborish" %}</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<div class="map pt-120" data-aos="fade-up" data-aos-delay="200">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3020.7290963766372!2d72.25667331540734!3d40.789969479323524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bc95f1de51e05f%3A0x9d2b835fb7aef422!2sIMAX%20Mebel!5e0!3m2!1suz!2s!4v1649319379512!5m2!1suz!2s"></iframe>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    const token = '5102901505:AAEuPIlTxoQsLo-omDBEBkRunpN1KzH1GJw';
+    const chatId = '1257603816';
+
+    $(document).ready(function () {
+        $("#submit").on('click', function (event) {
+            execute();
+        });
+
+        function execute() {
+            const name = document.querySelector('#name').value;
+            const surname = document.querySelector('#surname').value;
+            const subject = document.querySelector('#subject').value;
+            const phone = document.querySelector('#phone').value;
+            const message = document.querySelector('#message').value;
+            const messages = `Ism: ${name}\nFamiliya: ${surname}\nMavzu: ${subject}\nTelefon: ${phone}\nXabar: ${message}\n`;
+            if(name,surname,subject,phone,message){
+                $.ajax({
+                    type: 'POST',
+                    url: `https://api.telegram.org/bot${token}/sendMessage`,
+                    data: {
+                        chat_id: chatId,
+                        text: messages,
+                        parse_mode: 'html',
+                    },
+                    success: function (res) {
+                        $('#response').text('{% trans "Xabar yuborildi" %} !').addClass('alert-success');
+                        $('input').val('')
+                        $('textarea').val('')
+                    },
+                    error: function (error) {
+                        console.log(error)
+                        $('#response').text('{% trans "Xabar yuborilmadi" %} !!!').addClass('alert-danger');
+                    }
+                });
+
+            }else{
+                $('#response').text('{% trans "Hamma maydonlarni to`ldiring" %} !!!').addClass('alert-danger');
+            }
+        }
+    });
+</script>
+
+        {% endblock sitebar %}
