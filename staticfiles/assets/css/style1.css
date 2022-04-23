@@ -1,0 +1,1458 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
+:root{
+    --bg-dark: #2b2a28;
+    --text-light: #FFFFFF;
+    --bg-blur: rgba(255, 255, 255, 0.5);
+    --text-blur: rgba(255, 255, 255, 0.7);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+/* Header CSS */
+header{
+    background: var(--bg-dark);
+}
+header .container{
+    width: 85%;
+    margin: 0 auto;
+    padding: 5px 0;
+}
+header .container nav{
+    margin: 10px 0;
+}
+header .container nav .nav-items-container{
+    display: flex;
+    align-items: center;
+}
+header .container nav .nav-items-container .nav-item{
+    list-style: none;
+    margin-right: 20px;
+}
+header .container nav .nav-items-container .nav-item .nav-link{
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--text-blur);
+}
+header .container nav .nav-items-container .nav-item .nav-link:hover{
+    text-decoration: underline;
+    transition: cubic-bezier(.38,.11,.28,.91);
+}
+header .container .menu {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header .container .menu .brand-logo{
+    width: 100px;
+}
+header .container .menu .brand-logo img{
+    width: 100%;
+}
+header .container .menu .ham-menu{
+    margin: 0 10px;
+}
+header .container .menu .search-panel{
+    min-width: 200px;
+    width: 660px;
+}
+header .container .menu .search-panel label{
+    width: 100%;
+    border-radius: 30px;
+    padding: 7px 20px;
+    background: var(--bg-blur);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header .container .menu .search-panel label input{
+    width: 80%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #2b2a28;
+    font-weight: bold;
+}
+header .container .menu .search-panel label input::placeholder{
+    color: var(--text-blur);
+}
+header .container .menu .menu-items .menu-items-container{
+    display: flex;
+    align-items: center;
+}
+header .container .menu .menu-items .menu-items-container .menu-item{
+    list-style: none;
+    margin: 0 10px;
+}
+header .container .menu .menu-items .menu-items-container .menu-item .menu-link{
+    text-decoration: none;
+    color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header .container .menu .menu-items .menu-items-container .menu-item .menu-link:hover{
+    text-decoration: underline;
+}
+header .container .menu .menu-items .menu-items-container .menu-item .menu-link p{
+    color: var(--text-blur);
+}
+
+@media screen and (max-width: 1044px) {
+    header .container{
+        width: 90%;
+    }
+    header .container nav{
+        display: none;
+    }
+    header .container .menu .menu-items{
+        display: none;
+    }
+    header .container .menu .search-panel label{
+        padding: 5px 20px;
+    }
+}
+@media screen and (max-width: 320px) {
+    header .container .menu .brand-logo{
+        display: none;
+    }
+}
+/* Header CSS End */
+@media screen and (min-width: 1400px) {
+    header{
+        max-width: 1300px;
+        margin: 0 auto;
+    }
+    header .container{
+        width: 90%;
+    }
+}
+
+/* Main CSS */
+:root{
+    --bg-dark: #2b2a28;
+    --text-light: #FFFFFF;
+    --bg-blur: rgba(255, 255, 255, 0.5);
+    --text-blur: rgba(255, 255, 255, 0.7);
+}
+body{
+    background: #2b2a28;
+}
+main .banner{
+    position: relative;
+    background-image: url("https://img.edilportale.com/product-thumbs/b_ARISTO-M-Capital-Collection-is-a-brand-of-Atmosphera-210917-relfc8549f8.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -9;
+    background-position: bottom;
+    height: 500px;
+}
+main .banner .container{
+    width: 80%;
+    margin: 0 auto;
+}
+main .banner .container .banner-text{
+    width: 52%;
+    padding-top: 200px;
+    z-index: 99;
+}
+main .banner .container .banner-text h1{
+    font-size: 44px;
+    letter-spacing: 3px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-light);
+    text-transform: uppercase;
+}
+main .banner .container .banner-text p{
+    font-size: 30px;
+    color: var(--text-light);
+    text-transform: uppercase;
+}
+main .banner .bg-dark-modal{
+    height: 500px;
+    width: 100%;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 2), rgba(0, 0, 0, 0.3));
+}
+main .departure{
+    height: 500px;
+    position: relative;
+    background-image: url("	https://alonzo.uz/wp-content/uploads/2019/12/main-bg-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -9;
+    background-position: center right;
+}
+main .departure .container{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+}
+main .departure .container .description{
+    width: 60%;
+    margin-top: 50px;
+}
+main .departure .container .description .title h1{
+    color: var(--text-light);
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 40px;
+    font-family: 'Poppins', sans-serif;
+}
+main .departure .container .description .paragraph p{
+    margin-top: 10px;
+    color: var(--text-light);
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+main .departure .container .description .blocksContainer{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+main .departure .container .description .blocksContainer .block{
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+}
+main .departure .container .description .blocksContainer .block p{
+    color: var(--text-light);
+    margin-left: 10px;
+    font-size: 14px;
+}
+main .departure .container .description .buttonsContainer{
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+main .departure .container .description .buttonsContainer .btnGold{
+    border: 2px solid #f3c576;
+    color: #f3c576;
+    background: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+main .departure .container .description .buttonsContainer .btnGold:hover{
+    color: #000;
+    background: #f3c576;
+}
+main .departure .container .description .buttonsContainer .btnWatch{
+    border: none;
+    color: var(--text-light);
+    background: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+main .departure .container .description .buttonsContainer .btnWatch:hover{
+    color: #000;
+    background: var(--text-light);
+}
+main .departure .container .description .buttonsContainer .btnWatch svg{
+    margin-right: 10px;
+    fill: #fff;
+}
+main .departure .container .formContainer{
+    position: relative;
+    margin-top: 50px;
+    width: 350px;
+    height: 400px;
+    background: rgba(0,0,0,0.5);
+    text-align: center;
+    border-radius: 5px;
+}
+main .departure .container .formContainer .formTitle{
+    margin-top: 40px;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--text-light);
+    font-family: 'Poppins', sans-serif;
+}
+main .departure .container .formContainer .formParagraph{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+main .departure .container .formContainer form{
+    height: 250px;
+    width: 80%;
+    margin: 0 auto;
+    background: #FFFFFF;
+    border-bottom: 5px solid #f3c576;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+main .departure .container .formContainer form label{
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto;
+    background: #ddd;
+    padding: 15px 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #999;
+}
+main .departure .container .formContainer form label input{
+    border: none;
+    outline: none;
+    background: transparent;
+}
+main .departure .container .formContainer form .btnSubmit{
+    width: 80%;
+    margin: 0 auto;
+    background: #f3c576;
+    padding: 15px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+}
+main .departure .bg-dark-modal{
+    height: 500px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 2), rgba(0, 0, 0, 0.3));
+    z-index: -9;
+}
+@media screen and (min-width: 1400px) {
+    main{
+        max-width: 1300px;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 1044px) {
+    main .departure{
+        height: 800px;
+    }
+    main .departure .container{
+        flex-direction: column;
+    }
+    main .departure .container .description{
+        width: 100%;
+    }
+    main .departure .container .formContainer{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 768px) {
+    main .banner .container .banner-text{
+        width: 100%;
+    }
+    main .banner .container .banner-text h1{
+        font-size: 28px;
+    }
+    main .banner .container .banner-text p{
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 544px) {
+    main .departure .container{
+        width: 90%;
+    }
+    main .departure .container .description .title h1{
+        font-size: 16px;
+    }
+    main .departure .container .description .paragraph p{
+        font-size: 13px;
+    }
+    main .departure .container .description .blocksContainer{
+        display: grid;
+        grid-template-columns: 100%;
+    }
+    main .departure .container .description .blocksContainer .block p{
+        font-size: 12px;
+    }
+    main .departure .container .description .buttonsContainer{
+        flex-direction: column;
+    }
+    main .departure .container .description .buttonsContainer .btnGold{
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+    main .departure .container .description .buttonsContainer .btnWatch{
+        display: none;
+    }
+    main .departure .container .formContainer{
+        margin-top: 50px;
+        width: 100%;
+    }
+    main .departure .container .formContainer .formTitle{
+        margin-top: 20px;
+        font-size: 26px;
+        font-weight: 500;
+        color: var(--text-light);
+        font-family: 'Poppins', sans-serif;
+    }
+    main .departure .container .formContainer .formParagraph{
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-light);
+        margin-bottom: 10px;
+    }
+    main .departure .container .formContainer form{
+        height: 250px;
+        width: 80%;
+        margin: 0 auto;
+        background: #FFFFFF;
+        border-bottom: 5px solid #f3c576;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    main .departure .container .formContainer form label{
+        width: 80%;
+        margin: 0 auto;
+        background: #ddd;
+        padding: 15px 10px;
+        border: 1px solid #555;
+        border-radius: 5px;
+        font-size: 14px;
+        color: #999;
+    }
+    main .departure .container .formContainer form input{
+        border: none;
+        outline: none;
+        background: transparent;
+    }
+    main .departure .container .formContainer form .btnSubmit{
+        width: 80%;
+        margin: 0 auto;
+        background: #f3c576;
+        padding: 15px 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+        color: #000;
+        font-weight: bold;
+        cursor: pointer;
+    }
+}
+/* Main CSS End*/
+
+/* Indexes CSS */
+.indexes .container{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    padding: 10px 0;
+}
+.indexes .container .index{
+    max-width: 200px;
+    text-align: center;
+}
+.indexes .container .index h1{
+    font-size: 40px;
+    font-weight: 500;
+    color: #f3c576;
+}
+.indexes .container .index p{
+    color: #fff;
+    margin-top: 10px;
+}
+.indexes .container .stick{
+    width: 2px;
+    height: 110px;
+    background: #ccc;
+    opacity: 70%;
+}
+@media screen and (max-width: 768px) {
+    .indexes .container{
+        width: 90%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .indexes .container .index{
+        text-align: left;
+    }
+    .indexes .container .stick{
+        height: 1px;
+        width: 110px;
+        margin-top: 10px;
+    }
+}
+/* Indexes CSS End */
+/* About CSS */
+.about{
+    background-image: url("https://alonzo.uz/wp-content/uploads/2019/12/bg-original.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 50px 0;
+}
+.about .container{
+    width: 80%;
+    margin: 0 auto;
+}
+.about .container .about-title{
+    width: 50%;
+    margin: 0 auto;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.about .container .about-title h1{
+    font-size: 40px;
+    color: #fff;
+    font-weight: 400;
+}
+.about .container .about-title img{
+    width: 300px;
+    margin-top: 20px;
+}
+.about .container .about-description{
+    width: 50%;
+    text-align: left;
+}
+.about .container .about-description .title{
+    margin-top: 10px;
+}
+.about .container .about-description .title h1{
+    color: #fff;
+    line-height: 2rem;
+    font-size: 24px;
+    font-weight: 500;
+}
+.about .container .about-description .paragraph{
+    margin-top: 10px;
+}
+.about .container .about-description .paragraph p{
+    color: #fff;
+    line-height: 1.5rem;
+    opacity: 70%;
+    font-weight: 500;
+}
+.about .container .about-description .buttonsContainer{
+    display: flex;
+    margin-top: 30px;
+}
+.about .container .about-description .buttonsContainer .btnGold{
+    border: 2px solid #f3c576;
+    color: #f3c576;
+    background: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.about .container .about-description .buttonsContainer .btnWhite{
+    border: 2px solid #fff;
+    border-radius: 4px;
+    color: var(--text-light);
+    background: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 30px;
+    cursor: pointer;
+}   
+@media screen and (max-width: 768px) {
+    .about .container{
+        width: 90%;
+    }
+    .about .container .about-description{
+        width: 100%;
+    }
+}
+/* About CSS End */
+/* Types CSS */
+.types{
+    padding: 50px 0;
+    background: #fff;
+}
+.types .container{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.types .container .card{
+    width: 30%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.types .container .card:hover img{
+    transform: scale(1.1);
+    transition: 0.5s ease;
+}
+.types .container .card .card-image img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: 0.5s ease;
+}
+.types .container .card .card-content{
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    padding: 10px;
+}
+.types .container .card .card-content h3{
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+}
+.types .container .card .card-content h4{
+    font-size: 15px;
+    color: #242424;
+    line-height: 1.2;
+    margin-top: 5px;
+    font-family: "Montserrat", sans-serif;
+}
+.types .container .card .card-content .btn{
+    border: none;
+    background: #000;
+    padding: 5px 10px;
+    margin-top: 20px;
+}
+.types .container .card .card-content .btn:hover{   
+    background: coral;
+    transition: all 0.5s ease;
+}
+.types .container .card .card-content .btn a{
+    text-decoration: none;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+@media screen and (max-width: 768px){
+    .types .container{
+        flex-direction: column;
+    }
+    .types .container .card{
+        width: 100%;
+    }
+}
+/* Types CSS End */
+/* Latest CSS */
+.latest{
+    padding: 100px 0;
+    background: #fff;
+}
+.latest .container{
+    width: 90%;
+    margin: 0 auto;
+}
+.latest .container .latest-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+@media screen and (max-width: 768px) {
+    .latest .container .latest-head{
+        flex-direction: column;
+        align-items: center;
+    }
+    .latest .container .latest-head .gray-line{
+        display: none;
+    }
+    .latest .container .latest-cards{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.latest .container .latest-head .title h1{
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+    margin: 0;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+}
+.latest .container .latest-head .gray-line{
+    width: 70%;
+    height: 2px;
+    background: #ddd;
+}
+.latest .container .latest-head .scroll{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.latest .container .latest-head .scroll .btn{
+    height: 30px;
+    width: 30px;
+    font-size: 30px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    margin: 5px;
+    padding: 5px;
+    transition: 0.3s ease;
+}
+.latest .container .latest-head .scroll .btn:hover{
+    background: coral;
+    border: 1px solid #fff;
+    color: #fff;
+    transition: 0.3s ease;
+}
+.latest .container .latest-cards{
+    margin: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow-x: hidden;
+    flex-wrap: wrap;
+}
+.latest .container .latest-cards .card{
+    max-width: 275px;
+}
+.latest .container .latest-cards .card-image:hover img{
+    transform: scale(1.1);
+    transition: 0.5s ease;
+}
+.latest .container .latest-cards .card .card-image{
+    position: relative;
+    height: 300px;
+    width: 100%;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+.latest .container .latest-cards .card .card-image img{
+    width: 100%;
+    height: 275px;
+    transition: 0.5s ease;
+}
+.latest .container .latest-cards .card .card-image .buyBtn{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border: none;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    z-index: 99;
+    font-weight: 500;
+    -webkit-transition: all .4s ease 0s;
+    -o-transition: all .4s ease 0s;
+    transition: all .4s ease 0s;
+    padding: 9px 10px 10px;
+    transform: translateY(-5px);
+    opacity: 0;
+}
+.latest .container .latest-cards .card-image:hover .buyBtn{
+    transform: translateY(-10px);
+    opacity: 1;
+}
+.latest .container .latest-cards .card .card-image .buyBtn:hover{
+    color: #fff;
+    background: coral;
+}
+.latest .container .latest-cards .card .card-image .buyBtn a{
+    text-decoration: none;
+    background: transparent;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+.latest .container .latest-cards .card .card-image .buyBtn i{
+    font-size: 26px;
+    margin-right: 10px;
+}
+.latest .container .latest-cards .card .card-content .card-name p{
+    font-weight: 500;
+    margin: 0 0 10px;
+    font-size: 16px;
+    color: #000;
+    font-family: "Montserrat", sans-serif;  
+}
+.latest .container .latest-cards .card .card-content .card-price{
+    display: flex;
+    align-items: center;
+}
+.latest .container .latest-cards .card .card-content .card-price .old-price{
+    margin-right: 13px;
+    color: #555252;
+    text-decoration: line-through;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;  
+}
+.latest .container .latest-cards .card .card-content .card-price .new-price{
+    color: #fd1748;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;  
+}
+/* Latest CSS End */
+/* Advantages CSS */
+.advantages{
+    padding: 50px 0;
+    background: rgb(236, 236, 236);
+}
+.advantages .container{
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.advantages .container .title{
+    text-align: center;
+}
+.advantages .container .title h1{
+    font-size: 40px;
+    font-weight: 400;
+}
+.advantages .container .title p{
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    opacity: 70%;
+}
+.advantages .container .cardsContainer{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.advantages .container .cardsContainer .card{
+    width: 220px;
+    height: 150px;
+    margin: 20px 30px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px #ccc;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.advantages .container .cardsContainer .card img{
+    width: 50px;
+    height: 50px;
+}
+.advantages .container .cardsContainer .card p{
+    font-weight: 700;
+    opacity: 80%;
+}
+
+/* Advantages CSS End */
+/* Discount CSS */
+.discount{
+    padding: 50px 0;
+    background-image: url("	https://alonzo.uz/wp-content/uploads/2019/12/Rectangle-bg.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+.discount .container{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+.discount .container .description{
+    width: 60%;
+}
+.discount .container .description h1{
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #fff;
+}
+.discount .container .description p{
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+}
+.discount .container .description .timer{
+    display: flex;
+    align-items: center;
+}
+.discount .container .description .timer span{
+    color: gray;
+    font-weight: 500;
+    margin-right: 10px;
+}
+.discount .container .description .timer .time{
+    color: rgb(56, 56, 56);
+    font-size: 24px;
+    font-weight: 700;
+    margin-right: 10px;
+}
+.discount .container .formContainer{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 50px;
+    width: 350px;
+    height: 400px;
+    background: #f3c576;
+    text-align: center;
+    border-radius: 5px;
+}
+.discount .container .formContainer form{
+    width: 80%;
+    height: 90%;
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    background: #FFFFFF;
+    border-bottom: 5px solid #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.discount .container .formContainer form h1{
+    margin-top: 40px;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+}
+.discount .container .formContainer form label{
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto;
+    background: #ddd;
+    padding: 15px 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #999;
+}
+.discount .container .formContainer form input{
+    border: none;
+    outline: none;
+    background: transparent;
+}
+.discount .container .formContainer form .submitBtn{
+    width: 80%;
+    margin: 0 auto;
+    background: #000;
+    color: #f3c576;
+    padding: 15px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+    .discount .container{
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .discount .container .description{
+        width: 100%;
+    }
+    .discount .container .formContainer{
+        width: 90%;
+        height: 400px;
+        background: #f3c576;
+        text-align: center;
+        border-radius: 5px;
+    }
+    .discount .container .description .timer{
+        flex-direction: column;
+    }
+}
+/* Discount CSS  End */
+/* Process CSS */
+.process{
+    padding: 50px 0;
+    background: rgb(236, 236, 236);
+}
+.process .container{
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.process .container .title{
+    text-align: center;
+}
+.process .container .title h1{
+    font-size: 40px;
+    font-weight: 700;
+}
+.process .container .title p{
+    text-transform: uppercase;
+    font-weight: 800;
+    opacity: 60%;
+}
+.process .container .steps{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.process .container .steps .step{
+    width: 150px;
+    margin: 20px 10px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.process .container .steps .step .svgBox{
+    width: 100px;
+    height: 100px;
+}
+.process .container .steps .arrow{
+    margin-top: 50px;
+    width: 50px;
+    height: 50px;
+}
+.process .container .steps .arrow img{
+    width: 100%;
+    height: 100%;
+}
+.process .container .steps .step .svgBox img{
+    width: 100%;
+    height: 100%;
+}
+.process .container .steps .step p{
+    font-weight: 700;
+    opacity: 80%;
+    margin-top: 10px;
+}
+/* Process CSS End */
+/* Start CSS */
+.start{
+    padding: 50px 0;
+    background-image: url("https://alonzo.uz/wp-content/uploads/2019/12/bg-original.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.start .container{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+.start .container .description{
+    width: 60%;
+}
+.start .container .description h1{
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+}
+.start .container .description p{
+    margin-top: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+}
+.start .container .formContainer{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 50px;
+    width: 350px;
+    height: 250px;
+    background: rgba(0,0,0,0.5);
+    text-align: center;
+    border-radius: 5px;
+}
+.start .container .formContainer form{
+    width: 80%;
+    height: 90%;
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    background: #FFFFFF;
+    border-bottom: 5px solid #f3c576    ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.start .container .formContainer form h1{
+    margin-top: 40px;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+}
+.start .container .formContainer form label{
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto;
+    background: #ddd;
+    padding: 15px 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #999;
+}
+.start .container .formContainer form input{
+    border: none;
+    outline: none;
+    background: transparent;
+}
+.start .container .formContainer form .submitBtn{
+    width: 80%;
+    margin: 0 auto;
+    background: #f3c576;
+    padding: 15px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+    .start .container{
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .start .container .description{
+        width: 100%;
+    }
+    .start .container .formContainer{
+        width: 90%;
+        background: #f3c576;
+        text-align: center;
+        border-radius: 5px;
+    }
+    .start .container .description .timer{
+        flex-direction: column;
+    }
+}
+/* Start CSS End */
+/* Feedback CSS */
+.feedback{
+    padding: 50px 0;
+    background: rgb(236, 236, 236);
+}
+.feedback .container{
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.feedback .container .title{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.feedback .container .title h1{
+    font-size: 40px;
+    font-weight: 400;
+}
+.feedback .container .title img{
+    width: 300px;
+    margin-top: 20px;
+}
+.feedback .container .videosContainer{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.feedback .container .videosContainer .video{
+    width: 300px;
+    height: 200px;
+    margin: 20px 30px;
+    background: blue;
+}
+.feedback .container .videosContainer .video iframe{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+@media screen and (max-width: 768px) {
+    .feedback .container .videosContainer .video{
+        max-width: 250px;
+    }
+}
+/* Feedback CSS End */
+/* Branches CSS */
+.branches{
+    padding: 50px 0;
+    background: #4b4b4b;
+}
+.branches .container{
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.branches .container .title{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.branches .container .title h1{
+    font-size: 40px;
+    font-weight: 400;
+    color: #fff;
+}
+.branches .container .title img{
+    width: 300px;
+    margin: 20px;
+}
+.branches .container .branchesContainer{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.branches .container .branchesContainer .branch{
+    width: 500px;
+    margin: 20px 30px;
+}
+.branches .container .branchesContainer .branch .branch-name{
+    background: #fff;
+    padding: 10px;
+    color: #2b2a28;
+    display: flex;
+    align-items: center;
+}
+.branches .container .branchesContainer .branch .branch-name i{
+    margin-left: 20px;
+    font-size: 24px;
+}
+.branches .container .branchesContainer .branch .branch-name h3{
+    margin-left: 10px;
+}
+.branches .container .branchesContainer .branch .branch-desc{
+    width: 90%;
+    margin: 0 auto;
+}
+.branches .container .branchesContainer .branch .branch-desc p{
+    font-weight: 700;
+    padding: 5px 0;
+    opacity: 60%;
+}
+.branches .container .branchesContainer .branch .branch-desc .phone-number{
+    opacity: 1;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+}
+@media screen and (max-width: 768px) {
+    .branches .container .branchesContainer .branch{
+        max-width: 250px;
+    }
+    .branches .container .title img{
+        width: 200px;
+    }
+}
+/* Branches CSS End */
+/* Clients CSS */
+.clients{
+    padding: 100px 0;
+    background: #fff;
+}
+.clients .container{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.clients .container .title h1{
+    font-size: 40px;
+    font-weight: 400;
+}
+.clients .container .scroll{
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.clients .container .scroll .btn{
+    border: none;
+    background: #fff;
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+}
+.clients .container .scroll .btn i{
+    font-size: 40px;
+    color: #9D9D9D;
+}
+.clients .container .scroll .cards{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.clients .container .scroll .cards .card{
+    margin: 0 10px;
+    max-width: 230px;
+}
+.clients .container .scroll .cards .card img{
+    width: 100%;
+    height: 100%;
+}
+@media screen and (max-width: 768px) {
+    .clients .container .scroll .cards .card:nth-child(3){
+        display: none;
+    }
+    .clients .container .scroll .cards .card:nth-child(4){
+        display: none;
+    }
+}
+/* Clients CSS ENd */
+/* Socials CSS */
+.socials{
+    padding: 100px 0;
+    background: #F9F8F5;
+}
+.socials .container{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.socials .container .title{
+    margin-bottom: 12px;
+}
+.socials .container .title h1{
+    font-size: 36px;
+    font-weight: 400;
+    text-transform: uppercase;
+    opacity: 90%;
+    font-family: 'Poppins', sans-serif;
+}
+.socials .container .paragraph{
+    margin-bottom: 12px;
+}
+.socials .container .paragraph p{
+    font-size: 20px;
+    opacity: 70%;
+}
+.socials .container .social-icons{
+    display: flex;
+    align-items: center;
+}
+.socials .container .social-icons .social{
+    padding: 15px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin: 5px;
+}
+.socials .container .social-icons .social:hover{
+    opacity: 0.9;
+}
+.socials .container .social-icons .social a{
+    text-decoration: none;
+    color: #fff;
+    display: grid;
+    place-items: center;
+}
+.socials .container .social-icons .social a i{
+    color: #fff;
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+}
+.socials .container .social-icons .social.facebook{
+    background: #3b5998;
+}
+.socials .container .social-icons .social.instagram{
+    background: #000;
+}
+.socials .container .social-icons .social.telegram{
+    background: gray;
+}
+.socials .container .social-icons .social.you-tube{
+    background: red;
+}
+
+/* Socials CSS End */
+/* Footer CSS */
+footer{
+    background: #4892d1;
+    padding: 50px 0;
+}
+footer .container{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+footer .container .footer-menu{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+footer .container .footer-menu .footer-header{
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+footer .container .footer-menu-container .footer-item{
+    list-style: none;
+}
+footer .container .footer-menu-container .footer-item .footer-link{
+    text-decoration: none;
+    color: #ccc;
+}
+footer .container .footer-menu-container .footer-item .footer-link:hover{
+    color: #fff;
+    text-decoration: underline;
+}
+/* Footer CSS ENd */

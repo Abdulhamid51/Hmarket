@@ -1,225 +1,732 @@
-{% extends 'base.html' %}
 {% load static %}
-{% load i18n %}
-{% block sitebar %}
-        <div class="slider-area section-padding-2">
-            <!-- <div class="container-fluid"> -->
-                <div class="slider-active swiper-container">
-                    <div class="swiper-wrapper">
-                        {% for slide in slider %}
-                        <div class="swiper-slide">
-                            <div class="intro-section slider-height-1 slider-content-center bg-img single-animation-wrap slider-bg-color-1 slider-overly" style="background-image:url({{ slide.bg_image.url }})">
-                                <div class="container">
-                                    <div class="row align-items-center">
-                                        <div class="col-lg-6 offset-lg-6 col-md-7 offset-md-5">
-                                            <div class="slider-content-1 slider-animated-1">
-                                                <h3 class="animated text-light">{{ slide.sub_title }}</h3>
-                                                <h1 class="animated color-big">{{ slide.title }}</h1>
-                                                <div class="slider-btn btn-hover">
-                                                    <a href="{% url 'main:shop' %}" class="btn animated">
-                                                        {% trans "Harid qilish" %} <i class=" ti-arrow-right "></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                        <div class="home-slider-prev2 main-slider-nav2"><i class="fa fa-angle-left"></i></div>
-                        <div class="home-slider-next2 main-slider-nav2"><i class="fa fa-angle-right"></i></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://mebel.dafna.online/favicon.ico">
+    <title>Dafna Furniture</title>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/static/assets/css/style1.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<header>
+        <div class="container">
+            <nav>
+                <ul class="nav-items-container">
+                    <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Catalog</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">About Company</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Stock</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Contacts</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Employment</a></li>
+                    <li class="nav-item"><a href="tel:+998712031111" class="nav-link">71 203 11 11</a></li>
+                </ul>
+            </nav>
+            <div class="menu">
+                <div class="brand-logo">
+                    <img src="https://mebel.dafna.online/img/logo.png" alt="brand-image" />
+                </div>
+                <div class="ham-menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="30px" width="25px" id="Layer_1" data-name="Layer 1" viewBox="0 0 64 41.14">
+                        <defs>
+                        <style>.cls-1{fill:#FFFFFF;}</style>
+                        </defs>
+                        <rect class="cls-1" width="64" height="6.1" rx="3.05"/>
+                        <path class="cls-1" d="M3,17.52H61a3,3,0,0,1,3,3v0a3,3,0,0,1-3,3H3a3,3,0,0,1-3-3v0a3,3,0,0,1,3-3Z"/>
+                        <rect class="cls-1" y="35.05" width="64" height="6.1" rx="3.05"/>
+                    </svg>
+                </div>
+                <div class="search-panel">
+                    <label>
+                        <input type="text" placeholder="I'm looking for..." />
+                        <svg width="20px" height="20px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 122.879 119.799" enable-background="new 0 0 122.879 119.799" xml:space="preserve">
+                        <g>
+                        <path fill="#ffffff" d="M49.988,0h0.016v0.007C63.803,0.011,76.298,5.608,85.34,14.652c9.027,9.031,14.619,21.515,14.628,35.303h0.007v0.033v0.04 h-0.007c-0.005,5.557-0.917,10.905-2.594,15.892c-0.281,0.837-0.575,1.641-0.877,2.409v0.007c-1.446,3.66-3.315,7.12-5.547,10.307 l29.082,26.139l0.018,0.016l0.157,0.146l0.011,0.011c1.642,1.563,2.536,3.656,2.649,5.78c0.11,2.1-0.543,4.248-1.979,5.971 l-0.011,0.016l-0.175,0.203l-0.035,0.035l-0.146,0.16l-0.016,0.021c-1.565,1.642-3.654,2.534-5.78,2.646 c-2.097,0.111-4.247-0.54-5.971-1.978l-0.015-0.011l-0.204-0.175l-0.029-0.024L78.761,90.865c-0.88,0.62-1.778,1.209-2.687,1.765 c-1.233,0.755-2.51,1.466-3.813,2.115c-6.699,3.342-14.269,5.222-22.272,5.222v0.007h-0.016v-0.007 c-13.799-0.004-26.296-5.601-35.338-14.645C5.605,76.291,0.016,63.805,0.007,50.021H0v-0.033v-0.016h0.007 c0.004-13.799,5.601-26.296,14.645-35.338C23.683,5.608,36.167,0.016,49.955,0.007V0H49.988L49.988,0z M50.004,11.21v0.007h-0.016 h-0.033V11.21c-10.686,0.007-20.372,4.35-27.384,11.359C15.56,29.578,11.213,39.274,11.21,49.973h0.007v0.016v0.033H11.21 c0.007,10.686,4.347,20.367,11.359,27.381c7.009,7.012,16.705,11.359,27.403,11.361v-0.007h0.016h0.033v0.007 c10.686-0.007,20.368-4.348,27.382-11.359c7.011-7.009,11.358-16.702,11.36-27.4h-0.006v-0.016v-0.033h0.006 c-0.006-10.686-4.35-20.372-11.358-27.384C70.396,15.56,60.703,11.213,50.004,11.21L50.004,11.21z"/>
+                        </g>
+                        </svg>
+                    </label>
+                </div>
+                <div class="menu-items">
+                    <ul class="menu-items-container">
+                        <li class="menu-item"><a href="#" class="menu-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 22 27" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.0052 9.55344e-10C8.95703 -2.61973e-05 6.94953 0.53877 5.20853 1.55577C3.46753 2.57276 2.06212 4.0276 1.15043 5.75659C0.238735 7.48559 -0.143063 9.42012 0.0479902 11.3425C0.239044 13.265 0.995369 15.099 2.23187 16.6382C3.55472 18.2703 5.35546 19.5016 7.4119 20.1801L10.0633 26.4243C10.1434 26.5955 10.2746 26.7411 10.4409 26.8434C10.6073 26.9456 10.8015 27 11 27C11.1986 27 11.3928 26.9456 11.5591 26.8434C11.7255 26.7411 11.8566 26.5955 11.9367 26.4243L14.5882 20.1801C16.646 19.5041 18.4475 18.2723 19.7682 16.6382C21.2238 14.8392 22.0083 12.6374 21.9999 10.3748C21.9972 7.62566 20.8383 4.98974 18.7773 3.04492C16.7162 1.10011 13.9213 0.00510868 11.0052 9.55344e-10V9.55344e-10ZM11.0052 6.6109C11.7948 6.6109 12.5667 6.83164 13.2233 7.24522C13.8799 7.6588 14.3916 8.24664 14.6938 8.93439C14.9959 9.62215 15.075 10.3789 14.921 11.1091C14.7669 11.8392 14.3867 12.5098 13.8283 13.0362C13.2699 13.5626 12.5585 13.9211 11.7841 14.0663C11.0096 14.2115 10.2068 14.137 9.47729 13.8521C8.74776 13.5672 8.12421 13.0848 7.68551 12.4659C7.2468 11.8469 7.01265 11.1192 7.01265 10.3748C7.01265 9.37652 7.43329 8.41917 8.18203 7.71331C8.93077 7.00744 9.94628 6.6109 11.0052 6.6109V6.6109Z" 
+                                fill="#fff"/>
+                            </svg>
+                            <p>Addresses</p>
+                        </a></li>
+                        <li class="menu-item"><a href="#" class="menu-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="20" viewBox="0 0 25 27" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.366661 4.58933L12.1388 8.73554C12.2521 8.80139 12.3461 8.89923 12.4107 9.01834C12.4753 9.13744 12.5078 9.27321 12.5048 9.41075C12.5019 9.27448 12.5334 9.13989 12.5961 9.02109C12.6588 8.90229 12.7502 8.80366 12.8609 8.73554L24.6331 4.58933C24.8309 4.51547 24.9991 4.71593 24.9991 5.03243V22.1237C25.0058 22.2648 24.9751 22.405 24.9103 22.5282C24.8455 22.6514 24.7494 22.7526 24.6331 22.82L12.8609 26.9873C12.6631 27.0506 12.5048 26.8713 12.4949 26.5653C12.4949 26.8713 12.3267 27.0506 12.1289 26.9768L0.366661 22.82C0.251071 22.7516 0.155613 22.6503 0.0909699 22.5273C0.0263264 22.4043 -0.00495139 22.2646 0.000636837 22.1237V5.03243C0.000636837 4.71593 0.16881 4.51547 0.366661 4.58933ZM0.188595 3.47101L12.5048 7.81768L24.821 3.47101L12.5048 0L0.188595 3.47101Z" 
+                                fill="white"/>
+                            </svg>
+                            <p>Delivery</p>
+                        </a></li>
+                        <li class="menu-item"><a href="#" class="menu-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="20" viewBox="0 0 17 27" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.19377 26.9934C9.21816 27.0383 10.2397 26.853 11.1872 26.4505C12.8334 25.7741 14.3944 24.8971 15.8369 23.8384C17.1041 22.9678 17.154 22.2302 16.8347 20.7654C16.5154 19.3006 16.216 17.2416 15.8868 15.8383C15.7854 15.472 15.5712 15.1492 15.2762 14.9184C14.9812 14.6876 14.6213 14.5611 14.2504 14.5579H2.74582C2.37746 14.5665 2.02132 14.6952 1.72894 14.9254C1.43655 15.1556 1.22309 15.4753 1.11942 15.8383C1.01964 16.2378 0.959774 16.6475 0.87995 17.0675L0.171517 20.7654C0.0261059 21.1511 -0.0280096 21.5668 0.0136229 21.9781C0.0552553 22.3895 0.191446 22.7849 0.410987 23.1316C0.614421 23.4122 0.872717 23.6459 1.16931 23.818C1.47863 24.0331 1.70812 24.2175 2.02741 24.4121L2.91545 24.9857C3.0751 25.0882 3.21479 25.1394 3.37443 25.2418C4.84694 26.1586 6.48736 26.7549 8.19377 26.9934Z" 
+                                fill="white"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M8.44322 12.714C9.83984 12.7266 11.1995 12.2536 12.301 11.372C13.4025 10.4904 14.181 9.25215 14.5098 7.85862C14.6002 7.40202 14.6635 6.94022 14.6994 6.47575C14.6985 5.59114 14.5326 4.71489 14.2105 3.8944C13.7579 2.78924 13.0098 1.83817 12.0528 1.15115C11.0958 0.464136 9.96889 0.0692381 8.80243 0.0121183C7.76719 -0.0559202 6.73321 0.163457 5.80905 0.647214C4.95641 1.0707 4.20932 1.68862 3.62482 2.45378C3.04032 3.21894 2.63387 4.11111 2.43651 5.06215C2.34851 5.52806 2.30175 6.00119 2.29682 6.47575C2.33758 6.92609 2.40086 7.37398 2.4864 7.81765C2.57987 8.22528 2.71015 8.62308 2.87554 9.00589C3.37423 10.0957 4.15995 11.0205 5.14386 11.6758C6.12776 12.3311 7.27062 12.6907 8.44322 12.714Z" 
+                                fill="white"/>
+                            </svg>
+                            <p>Profile</p>
+                        </a></li>
+                        <li class="menu-item"><a href="#" class="menu-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="20" viewBox="0 0 28 27" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M27.8701 12.6575C27.7227 12.3608 27.4784 12.142 27.19 12.0484C26.9016 11.9549 26.5924 11.9941 26.3293 12.1575L17.3249 17.8387C17.008 17.4569 16.648 17.1245 16.2543 16.8501L24.1182 11.8735C24.2495 11.7928 24.3653 11.6832 24.4588 11.551C24.5522 11.4188 24.6215 11.2668 24.6625 11.1037C24.7035 10.9407 24.7154 10.7701 24.6976 10.6018C24.6797 10.4335 24.6324 10.2709 24.5584 10.1237L19.8761 0.658858C19.7288 0.362208 19.4845 0.143411 19.1961 0.0498407C18.9077 -0.0437296 18.5985 -0.0045429 18.3354 0.158917L10.0013 5.43103C9.86997 5.51168 9.75419 5.62132 9.66072 5.7535C9.56725 5.88568 9.49798 6.03773 9.45697 6.20073C9.41596 6.36374 9.40404 6.5344 9.42192 6.70271C9.43979 6.87101 9.48709 7.03357 9.56105 7.18082L13.9432 16.123H13.8332C13.4065 16.1223 12.982 16.1912 12.5725 16.3275L6.65962 4.36297C6.5665 4.17249 6.43223 4.01206 6.26946 3.89677C6.10668 3.78148 5.92075 3.71513 5.72916 3.70396L1.18692 3.44262C1.03846 3.43442 0.890019 3.4595 0.750089 3.51644C0.610158 3.57338 0.481473 3.66107 0.371381 3.77449C0.26129 3.88791 0.171947 4.02485 0.108455 4.17749C0.044963 4.33012 0.00856468 4.49546 0.00133842 4.66407C-0.00588785 4.83268 0.0161994 5.00126 0.066339 5.16017C0.116479 5.31909 0.193689 5.46523 0.293561 5.59026C0.393433 5.71529 0.514012 5.81675 0.648412 5.88886C0.782812 5.96096 0.928402 6.0023 1.07687 6.0105L4.97879 6.23775L10.5315 17.6001C9.88471 18.2738 9.41685 19.1397 9.18086 20.0998C8.98297 20.9082 8.95236 21.7577 9.09142 22.5818C9.23049 23.4059 9.53546 24.1824 9.98251 24.8505C10.4296 25.5186 11.0066 26.0602 11.6685 26.4331C12.3304 26.806 13.0593 27 13.7981 27C14.537 27 15.2659 26.806 15.9278 26.4331C16.5897 26.0602 17.1667 25.5186 17.6138 24.8505C18.0608 24.1824 18.3658 23.4059 18.5049 22.5818C18.6439 21.7577 18.6133 20.9082 18.4154 20.0998L27.4199 14.4186C27.6811 14.2513 27.8737 13.9738 27.9561 13.6463C28.0385 13.3188 28.004 12.9676 27.8601 12.6688L27.8701 12.6575ZM13.8131 24.5197C13.3086 24.5197 12.8153 24.3498 12.3957 24.0314C11.9762 23.713 11.6492 23.2605 11.4561 22.7311C11.263 22.2017 11.2125 21.6191 11.3109 21.0571C11.4093 20.495 11.6523 19.9788 12.0091 19.5736C12.3659 19.1683 12.8205 18.8924 13.3154 18.7806C13.8103 18.6688 14.3233 18.7262 14.7895 18.9455C15.2557 19.1648 15.6541 19.5361 15.9344 20.0126C16.2148 20.4891 16.3644 21.0493 16.3644 21.6223C16.3644 22.3908 16.0956 23.1277 15.6172 23.6711C15.1387 24.2144 14.4898 24.5197 13.8131 24.5197V24.5197Z" 
+                                fill="white"/>
+                            </svg>
+                            <p>Basket</p>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</header>
+   <main>
+    <div class="banner">
+        <div class="container">
+            <div class="banner-text">
+                <h1>добро пожаловать в dafna mebel</h1>
+                <p>27 лет обслуживаем вас с любовью</p>
+            </div>
+        </div>
+        <div class="bg-dark-modal"></div>
+    </div>
+    <div class="departure">
+        <div class="container">
+           <div class="description">
+                <div class="title">
+                    <h1>Laminated MDF doors</h1>
+                </div>
+                <div class="paragraph">
+                    <p>Making a door on order from 1.524.000 to 2.070.000 soums</p>
+                </div>
+                <div class="blocksContainer">
+                    <div class="block">
+                        <svg width="25px" fill="white" height="25px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve"><g><g>
+                            <path d="M59.7,30.3l-8-9C51.6,21.1,51.3,21,51,21h-7V8c0-0.6-0.4-1-1-1H20v2h22v13v15H19v2h23v4H22v2h21c0.6,0,1-0.4,1-1v-6V23    h6.6l6.2,7H50v2h8v12h2V31C60,30.7,59.9,30.5,59.7,30.3z"/>
+                            <path d="M14,41c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S17.3,41,14,41z M14,51c-2.2,0-4-1.8-4-4s1.8-4,4-4s4,1.8,4,4S16.2,51,14,51z    "/>
+                            <path d="M51,41c-3.3,0-6,2.7-6,6s2.7,6,6,6s6-2.7,6-6S54.3,41,51,41z M51,51c-2.2,0-4-1.8-4-4s1.8-4,4-4s4,1.8,4,4S53.2,51,51,51z    "/>
+                            <rect x="50" y="35" width="3" height="2"/>
+                            <circle cx="14" cy="47" r="2"/>
+                            <circle cx="51" cy="47" r="2"/>
+                            <rect y="43" width="6" height="2"/>
+                            <rect y="7" width="17" height="2"/>
+                            <rect x="3" y="15" width="19" height="2"/>
+                            <rect x="11" y="23" width="19" height="2"/>
+                            <rect y="32" width="14" height="2"/>
+                            <rect x="4" y="23" width="4" height="2"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                        </svg>
+                        <p>Free measurement and delivery</p>
+                    </div>
+                    <div class="block">
+                        <svg width="25px" height="25px" fill="white" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 486.31 486.31" style="enable-background:new 0 0 486.31 486.31;" xml:space="preserve"><g>
+                                <path d="M0.018,393.086c0.335,7.91,5.781,14.674,13.434,16.707l183.256,48.558c4.355,1.151,8.823,1.721,13.273,1.721   c5.718,0,11.416-0.936,16.878-2.818l247.238-85.063c7.655-2.633,12.633-10.029,12.185-18.109   c-0.446-8.084-6.211-14.882-14.107-16.66l-31.558-7.076l-203.079,69.875c-8.888,3.06-18.157,4.611-27.558,4.611   c-7.301,0-14.586-0.951-21.681-2.826L43.936,363.752l-31.974,11.52C4.518,377.955-0.334,385.176,0.018,393.086z"/>
+                                <path d="M0.018,305.044c0.335,7.91,5.797,14.677,13.449,16.709l183.24,48.556c4.355,1.154,8.823,1.73,13.273,1.73   c5.718,0,11.416-0.945,16.878-2.826l247.238-85.064c7.655-2.633,12.633-10.031,12.185-18.108   c-0.446-8.087-6.211-14.884-14.107-16.662l-31.558-7.076l-203.079,69.876c-8.888,3.059-18.157,4.603-27.558,4.603   c-7.301,0-14.586-0.943-21.681-2.817L43.936,275.711l-31.974,11.521C4.518,289.913-0.334,297.135,0.018,305.044z"/>
+                                <path d="M237.538,224.128c-8.888,3.059-18.157,4.604-27.558,4.604c-7.301,0-14.586-0.944-21.681-2.818L43.936,187.669   l-31.974,11.521c-7.444,2.682-12.296,9.904-11.944,17.814c0.335,7.908,5.797,14.674,13.449,16.707l183.24,48.557   c4.355,1.152,8.823,1.722,13.273,1.722c5.718,0,11.416-0.937,16.878-2.817l247.238-85.065c7.655-2.634,12.633-10.032,12.185-18.109   c-0.446-8.086-6.211-14.883-14.107-16.66l-31.558-7.078L237.538,224.128z"/>
+                                <path d="M13.452,145.662l183.256,48.557c4.355,1.152,8.823,1.721,13.273,1.721c5.718,0,11.416-0.937,16.878-2.818l247.238-85.063   c7.655-2.635,12.633-10.031,12.185-18.109c-0.446-8.087-6.211-14.883-14.107-16.661L268.008,27.494   c-3.748-0.841-7.557-1.256-11.352-1.256c-5.973,0-11.912,1.023-17.582,3.066L11.962,111.14   c-7.444,2.682-12.296,9.904-11.944,17.814C0.353,136.864,5.799,143.628,13.452,145.662z"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                        </svg>
+                        <p>More than 50 types of doors in 100 different colors</p>
+                    </div>
+                    <div class="block">
+                        <svg width="25px" height="25px" fill="white" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 237.396 237.396" style="enable-background:new 0 0 237.396 237.396;" xml:space="preserve"><g>
+                            <polygon points="207.703,12.358 179.256,12.358 173.688,110.358 213.271,110.358  "/>
+                            <path d="M157,125.538V76.926L87.831,22.004v34.87l-43.916-34.87v34.869L0,22.004v203.034h237.396v-99.5H157z M42.459,125.621   H19.793V87.955h22.667V125.621z M89.834,125.621H67.167V87.955h22.667V125.621z M137.208,125.621h-22.667V87.955h22.667V125.621z"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                        </svg>
+                        <p>Direct door manufacturer</p>
+                    </div>
+                    <div class="block">
+                        <svg width="25px" height="25px" fill="white" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 390 390" style="enable-background:new 0 0 390 390;" xml:space="preserve"><g>
+                            <path d="M194.92,0C87.262,0.043,0,87.331,0,195c0,107.695,87.305,195,195,195c0.069,0,0.139,0,0.208,0   c9.678-0.01,16.796-9.172,14.472-18.566c-2.201-8.902-3.363-18.214-3.346-27.8c0.038-21.992,6.37-42.589,17.271-60.085   l-30.112-30.112c-14.192-0.5-27.466-6.253-37.563-16.35c-5.773-5.773-14.081-17.462-19.544-52.161   c-2.748-17.452-3.48-32.721-3.51-33.362l-0.815-17.541l17.541,0.815c0.642,0.029,15.91,0.762,33.362,3.51   c34.699,5.463,46.388,13.771,52.161,19.544c10.131,10.131,15.861,23.493,16.349,37.562l38.142,38.142   c9.765-2.798,20.052-4.329,30.67-4.39c16.439-0.096,32.08,3.269,46.24,9.409c8.978,3.893,19.201-1.702,20.811-11.354   c1.77-10.614,2.684-21.516,2.662-32.637C389.795,87.422,302.119-0.043,194.92,0z M78.046,266.029c-2.75,1.11-5.59,1.63-8.38,1.63   c-8.92,0-17.36-5.34-20.89-14.119c-4.63-11.53,0.96-24.631,12.5-29.271c11.53-4.63,24.63,0.97,29.26,12.5   C95.166,248.3,89.576,261.399,78.046,266.029z M93.776,145.939c-3.9,8-11.91,12.65-20.24,12.65c-3.31,0-6.67-0.73-9.84-2.28   c-11.17-5.439-15.82-18.91-10.37-30.08c0,0,0,0-0.01,0c5.45-11.17,18.91-15.81,30.09-10.37   C94.576,121.3,99.216,134.77,93.776,145.939z M147.766,298.98c5.93,0,11.72,2.4,15.91,6.59c4.19,4.181,6.59,9.98,6.59,15.91   c0,5.92-2.4,11.72-6.59,15.91c-4.19,4.18-9.98,6.58-15.91,6.58c-5.92,0-11.72-2.4-15.91-6.58c-4.19-4.19-6.59-9.99-6.59-15.91   c0-5.93,2.4-11.729,6.59-15.91C136.046,301.38,141.846,298.98,147.766,298.98z M163.196,87.069c-2.13,0.63-4.27,0.931-6.39,0.931   c-9.71,0-18.67-6.341-21.56-16.13c-3.52-11.921,3.28-24.431,15.2-27.95c11.92-3.521,24.43,3.29,27.95,15.2   C181.916,71.04,175.116,83.55,163.196,87.069z M284.186,91.449c-4.25,6.931-11.64,10.75-19.21,10.75   c-4.01,0-8.07-1.079-11.73-3.319c-10.6-6.5-13.92-20.351-7.43-30.94c6.49-10.6,20.34-13.92,30.94-7.43   S290.676,80.85,284.186,91.449z M343.456,185.23c-4.19,4.19-9.99,6.59-15.91,6.59s-11.72-2.399-15.91-6.59   c-4.19-4.18-6.59-9.979-6.59-15.91c0-5.92,2.4-11.72,6.59-15.91c4.19-4.18,9.99-6.59,15.91-6.59s11.72,2.41,15.91,6.59   c4.19,4.19,6.59,9.99,6.59,15.91C350.046,175.25,347.646,181.04,343.456,185.23z"/>
+                            <path d="M248.631,215.235c-2.74,8.182-7.354,15.701-13.505,21.851c-6.148,6.15-13.668,10.763-21.851,13.504L321.94,359.254   c9.666,9.666,25.336,9.666,35.002,0l0.354-0.354c9.666-9.666,9.666-25.336,0-35.001L248.631,215.235z"/>
+                            <path d="M223.813,169.204c-15.627-15.627-74.953-18.385-74.953-18.385s2.758,59.326,18.385,74.953   c8.931,8.931,21.03,12.756,32.682,11.469c8.726-0.962,17.197-4.78,23.886-11.469s10.508-15.16,11.469-23.886   C236.569,190.234,232.744,178.135,223.813,169.204z"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
+                        </svg>
+                        <p>Free custom design for each client</p>
                     </div>
                 </div>
-            <!-- </div> -->
+                <div class="buttonsContainer">
+                    <button class="btn btnGold">
+                        Selection of directories
+                    </button>
+                    <button class="btn btnWatch">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="white" stroke="none" width="20px" height="20px" viewBox="0 0 48 48">
+                            <path d="M9.3,47.4a2.5,2.5,0,0,1-1.21-.32A2.47,2.47,0,0,1,6.8,44.89V3.11A2.5,2.5,0,0,1,10.63,1L44,21.88h0a2.5,2.5,0,0,1,0,4.24L10.63,47A2.49,2.49,0,0,1,9.3,47.4Zm0-45.79a1.5,1.5,0,0,0-.73.19A1.48,1.48,0,0,0,7.8,3.11V44.89a1.5,1.5,0,0,0,2.3,1.27l33.4-20.89a1.5,1.5,0,0,0,0-2.54L10.1,1.84A1.5,1.5,0,0,0,9.3,1.61Z"/>
+                        </svg>
+                        Watching video
+                    </button>
+                </div>
+            </div>
+            <div class="formContainer">
+                <h1 class="formTitle">Free departure of the measurer</h1>
+                <p class="formParagraph">To do this, fill out the form</p>
+                <form>
+                    <label for="name">
+                        Name:
+                        <input type="text" name="name"  />
+                    </label>
+                    <label for="phone">
+                        Phone:
+                        <input type="text" name="phone" value="+998" />
+                    </label>
+                    <button class="btn btnSubmit" type="submit">
+                        Send
+                    </button>
+                </form>
+            </div>
         </div>
-        <div class="banner-area section-padding-2 pt-30 pb-70">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="banner-wrap mb-30" data-aos="fade-up" data-aos-delay="200">
-                            <a href="{% url 'main:shop' %}"><img src="/static/assets/images/banner/banner-20.png" alt=""></a>
-                            <div class="banner-content-11">
-                                <h3>{% trans "Zamonaviy" %}</h3>
-                                <h4>{% trans "Mebel" %}</h4>
-                                <div class="btn-style-6 btn-hover">
-                                    <a href="{% url 'main:shop' %}" class="btn theme-color">
-                                        {% trans "Harid qilish" %}
-                                    </a>
-                                </div>
-                            </div>
+        <div class="bg-dark-modal"></div>
+    </div>
+    <div class="indexes">
+        <div class="container">
+            <div class="index client">
+                <h1>5000</h1>
+                <p>Over 5000 clients</p>
+            </div>
+            <div class="stick"></div>
+            <div class="index branchess">
+                <h1>14</h1>
+                <p>Branches in Uzbekistan</p>
+            </div>
+            <div class="stick"></div>
+            <div class="index production-units">
+                <h1>1000</h1>
+                <p>Door production units per month</p>
+            </div>
+            <div class="stick"></div>
+            <div class="index production-space">
+                <h1>3000</h1>
+                <p>More than square meters of production space</p>
+            </div>
+        </div>
+    </div>
+    <div class="about">
+        <div class="container">
+            <div class="about-title">
+                <h1>About Us</h1>
+                <img src="	https://alonzo.uz/wp-content/uploads/2019/12/Frame2.png" alt="image" />
+            </div>
+            <div class="about-description">
+                <div class="title">
+                    <h1>"Alonzo" - is one of the leading manufacturers of interior doors in the market of Uzbekistan</h1>
+                </div>
+                <div class="paragraph">
+                    <p>The main goal of our company is to produce high-quality doors that are equivalent to domestic and foreign counterparts.
+                    We step by step and constantly update our collections, materials and decor.
+                    </p>
+                </div>
+                <div class="buttonsContainer">
+                    <button class="btn btnGold">
+                        Catalog
+                    </button>
+                    <button class="btn btnWhite">
+                        History of Alonzo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="types">
+        <div class="container">
+            <div class="card">
+                <div class="card-image">
+                    <a href="#">
+                        <img src="https://myapi51.pythonanywhere.com/static/assets/images/banner/banner-20.png" alt="image" />
+                    </a>
+                    </div>
+                    <div class="card-content">
+                        <h3>Zamonaviy</h3>
+                        <h4>Mebel</h4>
+                        <button class="btn">
+                            <a href="#">
+                                Harid qilish
+                            </a>
+                        </button>
+                    </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <a href="#">
+                        <img src="https://myapi51.pythonanywhere.com/static/assets/images/banner/banner-21.png" alt="image" />
+                    </a>
+                    </div>
+                    <div class="card-content">
+                        <h3>Klassik</h3>
+                        <h4>Mebel</h4>
+                        <button class="btn">
+                            <a href="#">
+                                Harid qilish
+                            </a>
+                        </button>
+                    </div>
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <a href="#">
+                        <img src="https://myapi51.pythonanywhere.com/static/assets/images/banner/banner-22.png" alt="image" />
+                    </a>
+                    </div>
+                    <div class="card-content">
+                        <h3>Retro</h3>
+                        <h4>Mebel</h4>
+                        <button class="btn">
+                            <a href="#">
+                                Harid qilish
+                            </a>
+                        </button>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="latest">
+        <div class="container">
+            <div class="latest-head">
+                <div class="title">
+                    <h1>Eng so'ngi</h1>
+                </div>
+                <div class="gray-line"></div>
+                <div class="scroll">
+                    <button class="right-arrow btn">
+                        <i class='bx bx-chevron-left'></i>
+                    </button>
+                    <button class="left-arrow btn">
+                        <i class='bx bx-chevron-right'></i>
+                    </button>
+                </div>
+            </div>
+            <div class="latest-cards">
+                <div class="card">
+                    <div class="card-image">
+                        <a href="#">
+                            <img src="https://myapi51.pythonanywhere.com/media/product_images/ELO135WHT_LS_V01.jpeg" alt="image" />
+                            <button class="btn buyBtn">
+                                <a href="#">
+                                    <i class='bx bx-cart'></i>
+                                    Harid qilish
+                                </a>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-name">
+                            <p>Mebel-10</p>
+                        </div>
+                        <div class="card-price">
+                            <p class="new-price">$870,0</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="banner-wrap mb-30" data-aos="fade-up" data-aos-delay="400">
-                            <a href="{% url 'main:shop' %}"><img src="/static/assets/images/banner/banner-21.png" alt=""></a>
-                            <div class="banner-content-11">
-                                <h3>{% trans "Kalassik" %}</h3>
-                                <h4>{% trans "Mebel" %}</h4>
-                                <div class="btn-style-6 btn-hover">
-                                    <a href="{% url 'main:shop' %}" class="btn theme-color">
-                                        {% trans "Harid qilish" %}
-                                    </a>
-                                </div>
-                            </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <a href="#">
+                            <img src="https://myapi51.pythonanywhere.com/media/product_images/1-8.jpeg" alt="image" />
+                            <button class="btn buyBtn">
+                                <a href="#">
+                                    <i class='bx bx-cart'></i>
+                                    Harid qilish
+                                </a>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-name">
+                            <p>Mebel-9</p>
+                        </div>
+                        <div class="card-price">
+                            <p class="old-price">$600,0</p>
+                            <p class="new-price">$567,0</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="banner-wrap mb-30" data-aos="fade-up" data-aos-delay="600">
-                            <a href="{% url 'main:shop' %}"><img src="/static/assets/images/banner/banner-22.png" alt=""></a>
-                            <div class="banner-content-11">
-                                <h3>{% trans "Retro" %}</h3>
-                                <h4>{% trans "Mebel" %}</h4>
-                                <div class="btn-style-6 btn-hover">
-                                    <a href="{% url 'main:shop' %}" class="btn theme-color">
-                                        {% trans "Harid qilish" %}
-                                    </a>
-                                </div>
-                            </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <a href="#">
+                            <img src="https://myapi51.pythonanywhere.com/media/product_images/Fabrika-fiyat-kraliyet-yatak-moda-avrupa-frans-z-oyma-yatak-odas-mobilya-set.jpeg" alt="image" />
+                            <button class="btn buyBtn">
+                                <a href="#">
+                                    <i class='bx bx-cart'></i>
+                                    Harid qilish
+                                </a>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-name">
+                            <p>Mebel-8</p>
+                        </div>
+                        <div class="card-price">
+                            <p class="new-price">$710,0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <a href="#">
+                            <img src="https://myapi51.pythonanywhere.com/media/product_images/Dallas-Luxury-Beds-1x1-VISPRING_Diamond-Majesty_undressed.jpeg" alt="image" />
+                            <button class="btn buyBtn">
+                                <a href="#">
+                                    <i class='bx bx-cart'></i>
+                                    Harid qilish
+                                </a>
+                            </button>
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-name">
+                            <p>Mebel-7</p>
+                        </div>
+                        <div class="card-price">
+                            <p class="old-price">$680,0</p>
+                            <p class="new-price">$670,0</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="product-area pb-95">
-            <div class="container">
-                <div class="section-border section-border-margin-1" data-aos="fade-up" data-aos-delay="200">
-                    <div class="section-title-timer-wrap bg-white">
-                        <div class="section-title-1">
-                            <h2>{% trans "Eng so'ngi" %}</h2>
-                        </div>
-                    </div>
+    </div>
+    <div class="advantages">
+        <div class="container">
+            <div class="title">
+                <h1>Why choose us</h1>
+                <p>our advanyages</p>
+            </div>
+            <div class="cardsContainer">
+                <div class="card">
+                    <img src="https://alonzo.uz/wp-content/uploads/2019/12/factory-icon.png" alt="image">
+                    <p>Doors directly from the manufacturer</p>
                 </div>
-                <div class="product-slider-active-1 swiper-container">
-                    <div class="swiper-wrapper">
-                        {% for last in latest %}
-                        <div class="swiper-slide">
-                            <div class="product-wrap" data-aos="fade-up" data-aos-delay="200">
-                                <div class="product-img img-zoom mb-25">
-                                    <a href="{% url 'main:detail' last.slug %}">
-                                        <img src="{{ last.image.url }}" alt="">
-                                    </a>
-                                    <div class="product-action-wrap">
-                                    </div>
-                                    <div class="product-action-2-wrap">
-                                        <button class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i>{% trans "Harid qilish" %}</button>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h3><a href="{% url 'main:detail' last.slug %}">{{ last.name }}</a></h3>
-                                    <div class="product-price">
-                                        {% if last.old_price %}<span class="old-price">${{ last.old_price }}</span>{% endif %}
-                                        <span class="new-price">${{ last.price }}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                    <div class="product-prev-1 product-nav-1" data-aos="fade-up" data-aos-delay="200"><i class="fa fa-angle-left"></i></div>
-                    <div class="product-next-1 product-nav-1" data-aos="fade-up" data-aos-delay="200"><i class="fa fa-angle-right"></i></div>
+                <div class="card">
+                    <img src="https://alonzo.uz/wp-content/uploads/2019/12/shipped-icon.png" alt="image">
+                    <p>Free measurement and delivery (in Tashkent)</p>
+                </div>
+                <div class="card">
+                    <img src="https://alonzo.uz/wp-content/uploads/2019/12/sketch-icon.png" alt="image">
+                    <p>Free custom design for each client</p>
+                </div>
+                <div class="card">
+                    <img src="	https://alonzo.uz/wp-content/uploads/2019/12/support1-icon.png" alt="image">
+                    <p>1 year door warranty</p>
+                </div>
+                <div class="card">
+                    <img src="https://alonzo.uz/wp-content/uploads/2019/12/support-icon.png" alt="image">
+                    <p>Free service for one year</p>
+                </div>
+                <div class="card">
+                    <img src="https://alonzo.uz/wp-content/uploads/2019/12/customer-support-icon.png" alt="image">
+                    <p>Professional Installation</p>
+                </div>
+                <div class="card">
+                    <img src="	https://alonzo.uz/wp-content/uploads/2019/12/clock-icon.png" alt="image">
+                    <p>Timely fulfillment of orders (15-20 days)</p>
+                </div>
+                <div class="card">
+                    <img src="https://alonzo.uz/wp-content/uploads/2019/12/gift-icon.png" alt="image">
+                    <p>Special gift for each client</p>
                 </div>
             </div>
         </div>
-        <div class="banner-area section-padding-2 pb-95">
-            <div class="container-fluid">
-                <div class="bg-img bg-padding-3" style="background-image:url({{ last.bg_image.url }})">
-                    <div class="banner-content-5 banner-content-5-static">
-                        <span class="black" data-aos="fade-up" data-aos-delay="200">{{ last.sub_title }}</span>
-                        <h1 class="font-montserrat" data-aos="fade-up" data-aos-delay="400">{{ last.title }}</h1>
-                        <div class="btn-style-3 btn-hover" data-aos="fade-up" data-aos-delay="800">
-                            <a class="btn border-radius-none" href="{% url 'main:shop' %}">{% trans "Harid qilish" %}</a>
-                        </div>
+    </div>
+    <div class="discount">
+        <div class="container">
+            <div class="description">
+                <h1>Stock! pay 100% in advance and get 5% to 15% discount</h1>
+                <p>Until the end of the promotion left :</p>
+                <div class="timer">
+                    <span class="time">0</span>
+                    <span>days</span>
+                    <span class="time">0</span>
+                    <span>hours</span>
+                    <span class="time">0</span>
+                    <span>minutes</span>
+                    <span class="time">0</span>
+                    <span>secundes</span>
+                </div>
+            </div>
+            <div class="formContainer">
+                <form>
+                    <h1>To recive information about discounts, fill out the form and click on the button</h1>
+                    <label id="name">
+                        Name: 
+                        <input type="text" name="name" id="firstname" />
+                    </label>
+                    <label id="phone">
+                        Name: 
+                        <input type="text" name="phone" id="telephone" value="+998" placeholder="xx xxx xx xx"/>
+                    </label>
+                    <button class="btn submitBtn">
+                        buy at an affordable price
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="process">
+        <div class="container">
+            <div class="title">
+                <h1>It's easy t work with us</h1>
+                <p>our work process</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="svgBox">
+                        <img src="	https://alonzo.uz/wp-content/uploads/2019/12/website-icon.png" alt="">
+                    </div>
+                    <p>Fill out the form on the website or call</p>
+                </div>
+                <div class="arrow">
+                    <img src="https://alonzo.uz/wp-content/uploads/2019/12/right-arrow-iocn.png" alt="image">
+                </div>
+                <div class="step">
+                    <div class="svgBox">
+                        <img src="https://alonzo.uz/wp-content/uploads/2019/12/icon10.png" alt="image">
+                    </div>
+                    <p>Our specialist will contact you</p>
+                </div>
+                <div class="arrow">
+                    <img src="https://alonzo.uz/wp-content/uploads/2019/12/right-arrow-iocn.png" alt="image">
+                </div>
+                <div class="step">
+                    <div class="svgBox">
+                        <img src="	https://alonzo.uz/wp-content/uploads/2019/12/school-material-icon.png" alt="image">
+                    </div>
+                    <p>Door dimensions are measured free of charge</p>
+                </div>
+                <div class="arrow">
+                    <img src="https://alonzo.uz/wp-content/uploads/2019/12/right-arrow-iocn.png" alt="image">
+                </div>
+                <div class="step">
+                    <div class="svgBox">
+                        <img src="	https://alonzo.uz/wp-content/uploads/2019/12/icon12.png" alt="image">
+                    </div>
+                    <p>Produced within the agreed time</p>
+                </div>
+                <div class="arrow">
+                    <img src="https://alonzo.uz/wp-content/uploads/2019/12/right-arrow-iocn.png" alt="image">
+                </div>
+                <div class="step">
+                    <div class="svgBox">
+                        <img src="https://alonzo.uz/wp-content/uploads/2019/12/truck-icon.png" alt="image">
+                    </div>
+                    <p>Free delivery</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="start">
+        <div class="container">
+            <div class="description">
+                <h1>Shall we start work?</h1>
+                <p>Then fill out the form and place an order. Our specialists will contact you shortly.</p>
+            </div>
+            <div class="formContainer">
+                <form>
+                    <label for="name">
+                        Name:
+                        <input type="text" name="name" id="name"  />
+                    </label>
+                    <label for="phone">
+                        Phone:
+                        <input type="text" name="phone" id="phone" value="+998" />
+                    </label>
+                    <button class="btn submitBtn">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="feedback">
+        <div class="container">
+            <div class="title">
+                <h1>Opinion of our clients</h1>
+                <img src="https://alonzo.uz/wp-content/uploads/2019/12/Frame2.png" alt="image">
+            </div>
+            <div class="videosContainer">
+                <div class="video">
+                    <iframe class="elementor-video-iframe" allowfullscreen="" title="youtube Видеоплеер" 
+                        src="https://www.youtube.com/embed/zrr5JO25D-s?feature=oembed&amp;start&amp;end&amp;wmode=opaque&amp;loop=0&amp;controls=1&amp;mute=0&amp;rel=0&amp;modestbranding=0">
+                    </iframe>
+                </div>
+                <div class="video">
+                    <iframe class="elementor-video-iframe" allowfullscreen="" title="youtube Видеоплеер" 
+                        src="https://www.youtube.com/embed/_o7-NIVr7Ks?feature=oembed&amp;start&amp;end&amp;wmode=opaque&amp;loop=0&amp;controls=1&amp;mute=0&amp;rel=0&amp;modestbranding=0">
+                    </iframe>
+                </div>
+                <div class="video">
+                    <iframe class="elementor-video-iframe" allowfullscreen="" title="youtube Видеоплеер" 
+                        src="https://www.youtube.com/embed/KZojqDF3egY?feature=oembed&amp;start&amp;end&amp;wmode=opaque&amp;loop=0&amp;controls=1&amp;mute=0&amp;rel=0&amp;modestbranding=0">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="branches">
+        <div class="container">
+            <div class="title">
+                <h1>Our Branches</h1>
+                <img src="https://alonzo.uz/wp-content/uploads/2019/12/Frame2.png" alt="image">
+            </div>
+            <div class="branchesContainer">
+                <div class="branch">
+                    <div class="branch-name">
+                        <i class='bx bxs-location-plus'></i>
+                        <h3>Tashkent City</h3>
+                    </div>
+                    <div class="branch-desc">
+                        <p class="address">Tashkent City, Almazar district, Sagban street 186</p>
+                        <p class="phone-number">(99) 000-99-85</p>
+                        <p class="address">Tashkent City, Almazar district, Sagban street 186</p>
+                        <p class="phone-number">(99) 000-99-85</p>
+                    </div>
+                </div>
+                <div class="branch">
+                    <div class="branch-name">
+                        <i class='bx bxs-location-plus'></i>
+                        <h3>Tashkent City</h3>
+                    </div>
+                    <div class="branch-desc">
+                        <p class="address">Tashkent City, Almazar district, Sagban street 186</p>
+                        <p class="phone-number">(99) 000-99-85</p>
+                        <p class="address">Tashkent City, Almazar district, Sagban street 186</p>
+                        <p class="phone-number">(99) 000-99-85</p>
+                    </div>
+                </div>
+                <div class="branch">
+                    <div class="branch-name">
+                        <i class='bx bxs-location-plus'></i>
+                        <h3>Tashkent City</h3>
+                    </div>
+                    <div class="branch-desc">
+                        <p class="address">Tashkent City, Almazar district, Sagban street 186</p>
+                        <p class="phone-number">(99) 000-99-85</p>
+                        <p class="address">Tashkent City, Almazar district, Sagban street 186</p>
+                        <p class="phone-number">(99) 000-99-85</p>
+                    </div>
+                </div>
+                <div class="branch">
+                    <div class="branch-name">
+                        <i class='bx bxs-location-plus'></i>
+                        <h3>Tashkent City</h3>
+                    </div>
+                    <div class="branch-desc">
+                        <p class="address">Tashkent City, Almazar district, Sagban street 186</p>
+                        <p class="phone-number">(99) 000-99-85</p>
+                        <p class="address">Tashkent City, Almazar district, Sagban street 186</p>
+                        <p class="phone-number">(99) 000-99-85</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="product-area pb-60">
-            <div class="container">
-                <div class="section-title-3 text-center mb-55" data-aos="fade-up" data-aos-delay="200">
-                    <h2>{% trans "Chegirmali maxsulotlar" %}</h2>
+    </div>
+    <div class="clients">
+        <div class="container">
+            <div class="title">
+                <h1>Our clients</h1>
+            </div>
+            <div class="scroll">
+                <button class="btn left-arrow">
+                    <i class='bx bx-chevron-left'></i>
+                </button>
+                <div class="cards">
+                    <div class="card">
+                        <img src="https://alonzo.uz/wp-content/uploads/2020/08/partner-4.jpg" alt="image">
+                    </div>
+                    <div class="card">
+                        <img src="https://alonzo.uz/wp-content/uploads/2020/08/partner-6.jpg" alt="image">
+                    </div>
+                    <div class="card">
+                        <img src="https://alonzo.uz/wp-content/uploads/2020/08/partner-1.jpg" alt="image">
+                    </div>
+                    <div class="card">
+                        <img src="https://alonzo.uz/wp-content/uploads/2020/08/partner-5.jpg" alt="image">
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="banner-wrap mb-30" data-aos="fade-up" data-aos-delay="200">
-                            <a href="{% url 'main:shop' %}"><img src="/static/assets/images/banner/banner-23.jpg" alt=""></a>
-                            <div class="banner-content-10-position top-inc">
-                                <div class="banner-content-10 banner-content-10-responsive">
-                                    <h3>{% trans "Takrorlanmas" %}</h3>
-                                    <h4>{% trans "dizayn" %}</h4>
-                                </div>
-                            </div>
-                            <div class="banner-btn-1">
-                                <a href="{% url 'main:shop' %}">{% trans "Maxsulotlar" %}</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="row">
-                            {% for product in price_off %}
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="product-wrap mb-35" data-aos="fade-up" data-aos-delay="200">
-                                    <div class="product-img img-zoom mb-25">
-                                        <a href="{% url 'main:shop' %}">
-                                            <img src="{{product.image.url}}" alt="">
-                                        </a>
-                                        <div class="product-action-2-wrap">
-                                            <button class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i> Add to cart</button>
-                                        </div>
-                                    </div>
-                                    <div class="product-content">
-                                        <h3><a href="{% url 'main:shop' %}">{{ product.name }}</a></h3>
-                                        <div class="product-price">
-                                            <div class="product-price">
-                                                {% if product.old_price %}<span class="old-price">${{ product.old_price }}</span>{% endif %}
-                                                <span class="new-price">${{ product.price }}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
+                <button class="btn right-arrow">
+                    <i class='bx bx-chevron-right'></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="socials">
+        <div class="container">
+            <div class="title">
+                <h1>be the first to know about promotions and discounts!</h1>
+            </div>
+            <div class="paragraph">
+                <p>To do this, register on our social networks</p>
+            </div>
+            <div class="social-icons">
+                <div class="social facebook">
+                    <a href="#">
+                        <i class='bx bxl-facebook'></i>
+                    </a>
+                </div>
+                <div class="social instagram">
+                    <a href="#">
+                        <i class='bx bxl-instagram' ></i>
+                    </a>
+                </div>
+                <div class="social telegram">
+                    <a href="#">
+                        <i class='bx bxl-telegram' ></i>
+                    </a>
+                </div>
+                <div class="social you-tube">
+                    <a href="#">
+                        <i class='bx bxl-youtube' ></i>
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="brand-logo-area pb-95">
-            <div class="container">
-                <div class="brand-logo-active swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="single-brand-logo" data-aos="fade-up" data-aos-delay="200">
-                                <a href="#"><img src="/static/assets/images/brand-logo/brand-logo-1.png" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="single-brand-logo" data-aos="fade-up" data-aos-delay="400">
-                                <a href="#"><img src="/static/assets/images/brand-logo/brand-logo-2.png" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="single-brand-logo" data-aos="fade-up" data-aos-delay="600">
-                                <a href="#"><img src="/static/assets/images/brand-logo/brand-logo-3.png" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="single-brand-logo" data-aos="fade-up" data-aos-delay="800">
-                                <a href="#"><img src="/static/assets/images/brand-logo/brand-logo-4.png" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="single-brand-logo" data-aos="fade-up" data-aos-delay="1000">
-                                <a href="#"><img src="/static/assets/images/brand-logo/brand-logo-5.png" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="single-brand-logo" data-aos="fade-up" data-aos-delay="1200">
-                                <a href="#"><img src="/static/assets/images/brand-logo/brand-logo-1.png" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    </div>
+   </main>
+<footer>
+    <div class="container">
+        <div class="footer-menu">
+            <h1 class="footer-header">Customers</h1>
+            <ul class="footer-menu-container">
+                <li class="footer-item"><a href="#" class="footer-link">Booking</a></li>
+                <li class="footer-item"><a href="#" class="footer-link">Payment</a></li>
+                <li class="footer-item"><a href="#" class="footer-link">Delivery</a></li>
+                <li class="footer-item"><a href="#" class="footer-link">Refund</a></li>
+                <li class="footer-item"><a href="#" class="footer-link">Frequently asked ques</a></li>
+            </ul>
         </div>
-        {% endblock sitebar %}
+        <div class="footer-menu">
+            <h1 class="footer-header">Partners</h1>
+            <ul class="footer-menu-container">
+                <li class="footer-item"><a href="#" class="footer-link">Advantages</a></li>
+            </ul>
+        </div>
+        <div class="footer-menu">
+            <h1 class="footer-header">Company</h1>
+            <ul class="footer-menu-container">
+                <li class="footer-item"><a href="#" class="footer-link">About us</a></li>
+                <li class="footer-item"><a href="#" class="footer-link">Requisites</a></li>
+                <li class="footer-item"><a href="#" class="footer-link">Press center</a></li>
+                <li class="footer-item"><a href="#" class="footer-link">Contacts</a></li>
+                <li class="footer-item"><a href="#" class="footer-link">Vacancies</a></li>
+            </ul>
+        </div>
+        <div class="footer-menu">
+            <h1 class="footer-header">Socials</h1>
+            <ul class="footer-menu-container">
+                <li class="footer-item"><a href="#" class="footer-link">Telegram</a></li>
+                <li class="footer-item"><a href="#" class="footer-link">Instagram</a></li>
+                <li class="footer-item"><a href="#" class="footer-link">Facebook</a></li>
+            </ul>
+        </div>
+        <div class="footer-menu">
+            <h1 class="footer-header">Contacts</h1>
+            <ul class="footer-menu-container">
+                <li class="footer-item"><a href="#" class="footer-link">Almazar district, st. Jamie, 5.</a></li>
+                <li class="footer-item"><a href="#" class="footer-link">Daily: 09:00-18:00</a></li>
+                <li class="footer-item"><a href="#" class="footer-link">Phone: +998 71 203 11 11</a></li>
+                <li class="footer-item"><a href="#" class="footer-link">Armchairs and chairs: +998 99 060 66 99</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
